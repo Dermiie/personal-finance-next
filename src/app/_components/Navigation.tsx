@@ -19,7 +19,7 @@ const navLinks = [
 
 export default function Navigation() {
   return (
-    <div className="bg-grey-900 rounded-r-xl text-white h-screen py-10 pr-10 flex flex-col gap-20">
+    <div className="bg-grey-900 rounded-r-xl text-white h-full py-10 pr-10 flex flex-col gap-20">
       <div className="pl-8">
         <Image alt="logo" src="/logo-large.svg" height="100" width="130" />
       </div>

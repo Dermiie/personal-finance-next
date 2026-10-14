@@ -21,8 +21,8 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={publicSans.variable}>
-      <body className="bg-beige-100 flex flex-col">
-        <div className="flex w-screen flex-grow">
+      <body className="bg-beige-100 flex flex-col h-screen overflow-y-scroll">
+        <div className="flex w-screen flex-grow ">
           <div className="w-[20%] hidden lg:block">
             <Navigation />
           </div>
