@@ -1,75 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
-
-export interface Budget {
-  category: string;
-  maximum: number;
-  theme: string;
-}
-
-export interface Transaction {
-  // id: string;
-  name: string;
-  amount: number; // positive number, rendered as a negative spend
-  date: string; // ISO date string
-  category: string;
-  avatar?: string; // omit to show the purple icon avatar
-}
-
-export interface BudgetCardProps {
-  transactions: Transaction[];
-  seeAllHref?: string;
-  onMenuClick?: () => void;
-  /** Tailwind bg class for the accent (dot, bar) */
-  budgets: Budget;
-}
-
-const currency = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-});
-
-const formatDate = (iso: string) =>
-  new Date(iso).toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
-
-function PaperPlaneIcon() {
-  return (
-    <svg
-      width="22"
-      height="22"
-      viewBox="0 0 24 24"
-      fill="white"
-      aria-hidden="true"
-    >
-      <path d="M21.4 2.6a1 1 0 0 0-1-.2L2.9 9.2a1 1 0 0 0-.1 1.8l6.3 2.9 2.9 6.3a1 1 0 0 0 1.8-.1l6.8-17.5a1 1 0 0 0-.2-1Zm-9.1 14.1-1.6-3.5 6.6-6.6-5 10.1Z" />
-    </svg>
-  );
-}
-
-function Avatar({ name, src }: { name: string; src?: string }) {
-  if (src) {
-    return (
-      <Image
-        src={src?.replace('./', '/') || ''}
-        alt={name}
-        width={40}
-        height={40}
-        className="size-10 shrink-0 rounded-full object-cover"
-      />
-    );
-  }
-  return (
-    <span className="grid size-10 shrink-0 place-items-center rounded-full bg-[#7f6bae]">
-      <PaperPlaneIcon />
-    </span>
-  );
-}
+import { BudgetCardProps } from '../_types/budget';
+import currency from '../_utils/FormatCurrency';
+import { formatDate } from '../_utils/FormatDate';
+import Avatar from './Avatar';
 
 export default function BudgetCard({
   transactions,
@@ -86,11 +21,17 @@ export default function BudgetCard({
     maximum: 50.0,
     theme: '#277C78',
   };
-  const spent = transactions.reduce((sum, t) => sum + t.amount, 0);
+  // const spent = transactions.reduce((sum, t) => sum + t.amount, 0);
 
-  console.log('spent', spent);
-  const remaining = Math.max(maximum - spent, 0);
-  const percent = Math.min((spent / maximum) * 100, 100);
+  const spent = transactions
+    .filter((transaction) => transaction.category === title)
+    .reduce((sum, transaction) => sum + Math.abs(transaction.amount), 0);
+
+  // console.log('spent', spent);
+  const remaining = maximum - spent;
+  // const percent = Math.min((spent / maximum) * 100, 100);
+
+  const percent = spent > maximum ? 100 : (spent / maximum) * 100;
   console.log(percent, spent, maximum);
   const filteredTransactions = transactions.filter(
     (transaction) => transaction.category === title,
@@ -124,7 +65,7 @@ export default function BudgetCard({
       </header>
 
       <p className="mb-4 mt-6 text-preset-4 text-grey-300">
-        Maximum of {currency.format(maximum || 50.0)}
+        Maximum of {currency.format(maximum)}
       </p>
 
       {/* Progress */}
@@ -188,7 +129,7 @@ export default function BudgetCard({
               </span>
               <div className="flex flex-col items-end gap-1.5">
                 <strong className="text-base font-bold">
-                  -{currency.format(t.amount)}
+                  {currency.format(t.amount)}
                 </strong>
                 <time dateTime={t.date} className="text-preset-5 text-grey-300">
                   {formatDate(t.date)}

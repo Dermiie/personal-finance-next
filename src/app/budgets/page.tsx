@@ -1,6 +1,7 @@
 import financeData from '../../../data.json';
 import BudgetCard from '../_components/BudgetCard';
 import Button from '../_components/Button';
+import SpendingSummary from '../_components/SpendingSummary';
 
 export default function page() {
   const budgets = financeData.budgets;
@@ -14,8 +15,10 @@ export default function page() {
       </div>
 
       <div className="flex gap-4 w-full">
-        <div className="bg-beige-100 w-1/2"></div>
-        <div className=" w-1/2 p-5 rounded-md space-y-4">
+        <div className="bg-beige-100 w-1/2 py-5">
+          <SpendingSummary budgets={budgets} transactions={transactions} />
+        </div>
+        <div className=" w-1/2 py-5 space-y-4">
           {budgets.map((budget, i) => (
             <BudgetCard key={i} budgets={budget} transactions={transactions} />
           ))}
