@@ -11,7 +11,9 @@ export default function page() {
     <div className="p-10 space-y-6">
       <div className="flex justify-between">
         <h2 className="text-grey-900 font-bold text-preset-1">Budgets</h2>
-        <Button>+ Add New Budget</Button>
+        <div>
+          <Button>+ Add New Budget</Button>
+        </div>
       </div>
 
       <div className="flex gap-4 w-full">

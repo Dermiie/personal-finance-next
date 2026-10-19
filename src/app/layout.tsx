@@ -21,12 +21,12 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={publicSans.variable}>
-      <body className="bg-beige-100 flex flex-col h-screen overflow-y-scroll">
-        <div className="flex w-screen flex-grow ">
-          <div className="w-[20%] hidden lg:block">
+      <body className="bg-beige-100 flex flex-col h-screen overflow-hidden">
+        <div className="flex w-screen h-screen overflow-hidden">
+          <div className="hidden lg:block w-[20%] shrink-0 h-screen sticky top-0 overflow-hidden">
             <Navigation />
           </div>
-          <main className="w-[80%]">{children}</main>
+          <main className="flex-1 h-screen overflow-y-auto">{children}</main>
         </div>
         <div className="fixed inset-x-0 bottom-0 z-50 lg:hidden">
           <MobileNavigation />
