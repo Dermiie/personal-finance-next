@@ -1,7 +1,7 @@
-import Button from './Button';
+import Button from '../Button';
 
-import { IPot } from '../_types/pots';
-import MenuButton from './MenuButton';
+import { IPot } from '../../_types/pots';
+import MenuButton from '../MenuButton';
 
 interface Prop {
   pot: IPot;

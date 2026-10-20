@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ITransaction } from '../_types/transactions';
-import Image from 'next/image';
-import { formatDate } from '../_utils/FormatDate';
 
+import Image from 'next/image';
+import { ITransaction } from '@/app/_types/transactions';
+import { formatDate } from '@/app/_utils/FormatDate';
 interface Props {
   transactions: ITransaction[];
 }

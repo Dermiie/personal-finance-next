@@ -1,20 +1,21 @@
 import { useState } from 'react';
-import ColorSelect from './ColorSelector';
-import Button from './Button';
+import ColorSelect from '../ColorSelector';
+import Button from '../Button';
 
-export default function AddBudgetForm() {
+export default function AddPotForm() {
   const [color, setColor] = useState<string>('green');
   return (
     <div className="space-y-4">
-      <h2 className="text-preset-1 font-medium">Edit Budget</h2>
+      <h2 className="text-preset-1 font-medium">Add New Pot</h2>
       <p className="">
-        As your budget changes, feel free to update your spending limits
+        Choose a pot to set savings target. These can help keep you on track as
+        you save for special purchases
       </p>
 
       <form className="space-y-4">
         <div>
           <label htmlFor="name" className="text-preset-5-bold text-beige-500 ">
-            Budget Name
+            Pot Name
           </label>
           <input
             type="text"
@@ -25,7 +26,7 @@ export default function AddBudgetForm() {
         </div>
         <div>
           <label htmlFor="name" className="text-preset-5-bold text-beige-500">
-            Maximum Spending
+            Target
           </label>
           <input
             type="text"
@@ -38,7 +39,7 @@ export default function AddBudgetForm() {
           <ColorSelect value={color} onChange={setColor} />
         </div>
 
-        <Button>Update Budget</Button>
+        <Button>Add Pot</Button>
       </form>
     </div>
   );

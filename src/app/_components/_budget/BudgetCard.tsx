@@ -1,11 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { BudgetCardProps } from '../_types/budget';
-import currency from '../_utils/FormatCurrency';
-import { formatDate } from '../_utils/FormatDate';
-import Avatar from './Avatar';
-import MenuButton from './MenuButton';
+import { BudgetCardProps } from '../../_types/budget';
+import currency from '../../_utils/FormatCurrency';
+import { formatDate } from '../../_utils/FormatDate';
+import Avatar from '../Avatar';
+import MenuButton from '../MenuButton';
 
 export default function BudgetCard({
   transactions,

@@ -1,8 +1,8 @@
 'use client';
 
+import Button from '../Button';
+import Modal from '../Modal';
 import AddPotForm from './AddPotForm';
-import Button from './Button';
-import Modal from './Modal';
 
 export default function AddPot() {
   return (

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import Image from 'next/image';
-import { BillStatus, RecurringBill } from '../_types/bills';
+import { BillStatus, RecurringBill } from '@/app/_types/bills';
 
 type SortOption = 'latest' | 'oldest' | 'a-z' | 'z-a' | 'highest' | 'lowest';
 

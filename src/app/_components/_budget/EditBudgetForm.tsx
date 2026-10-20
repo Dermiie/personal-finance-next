@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import ColorSelect from './ColorSelector';
-import Button from './Button';
+import ColorSelect from '../ColorSelector';
+import Button from '../Button';
 
 export default function AddBudgetForm() {
   const [color, setColor] = useState<string>('green');
   return (
     <div className="space-y-4">
-      <h2 className="text-preset-1 font-medium">Add New Budget</h2>
+      <h2 className="text-preset-1 font-medium">Edit Budget</h2>
       <p className="">
-        Choose a category to set a spending budget. These category can help you
-        monitor spending
+        As your budget changes, feel free to update your spending limits
       </p>
 
       <form className="space-y-4">
@@ -39,7 +38,7 @@ export default function AddBudgetForm() {
           <ColorSelect value={color} onChange={setColor} />
         </div>
 
-        <Button>Add Budget</Button>
+        <Button>Update Budget</Button>
       </form>
     </div>
   );

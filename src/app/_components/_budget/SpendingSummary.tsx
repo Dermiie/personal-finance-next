@@ -1,9 +1,9 @@
-import { Budget, SpendingCategory, Transaction } from '../_types/budget';
-import currency from '../_utils/FormatCurrency';
+import { IBudget, SpendingCategory, Transaction } from '@/app/_types/budget';
+import currency from '@/app/_utils/FormatCurrency';
 
 export interface SpendingSummaryProps {
   // categories: SpendingCategory[];
-  budgets: Budget[];
+  budgets: IBudget[];
   transactions: Transaction[];
   title?: string;
 }

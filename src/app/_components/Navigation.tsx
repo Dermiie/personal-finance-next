@@ -1,5 +1,5 @@
+import NavItem from '@/app/_components/NavItem';
 import Image from 'next/image';
-import NavItem from './NavItem';
 
 const navLinks = [
   { href: '/', label: 'Overview', icon: '/icon-nav-overview.svg' },
@@ -30,9 +30,14 @@ export default function Navigation() {
         ))}
       </nav>
 
-      <div className="flex gap-2 justify-end">
+      <div className="flex gap-2 justify-end items-center">
         <span>
-          <img alt="menu-icon" src="/icon-minimize-menu.svg" />
+          <Image
+            alt="menu-icon"
+            src="/icon-minimize-menu.svg"
+            width={20}
+            height={20}
+          />
         </span>
         <p>Minimize Menu</p>
       </div>

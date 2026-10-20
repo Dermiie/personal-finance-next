@@ -1,8 +1,8 @@
-import Navigation from '@/app/_components/Navigation';
 import { ReactNode } from 'react';
 import { Public_Sans } from 'next/font/google';
 import '@/app/_styles/globals.css';
 import MobileNavigation from './_components/MobileNavigation';
+import Navigation from './_components/Navigation';
 
 const publicSans = Public_Sans({
   subsets: ['latin'],
