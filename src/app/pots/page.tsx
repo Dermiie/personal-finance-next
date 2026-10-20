@@ -1,7 +1,8 @@
 import React from 'react';
-import Button from '../_components/Button';
+
 import financeData from '../../../data.json';
 import PotCard from '../_components/PotCard';
+import AddPot from '../_components/AddPot';
 
 export default function page() {
   const pots = financeData.pots;
@@ -10,7 +11,7 @@ export default function page() {
       <div className="flex justify-between">
         <h2 className="text-grey-900 font-bold text-preset-1">Pots</h2>
         <div>
-          <Button>+ Add New Pot</Button>
+          <AddPot />
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">

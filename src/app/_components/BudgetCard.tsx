@@ -5,18 +5,18 @@ import { BudgetCardProps } from '../_types/budget';
 import currency from '../_utils/FormatCurrency';
 import { formatDate } from '../_utils/FormatDate';
 import Avatar from './Avatar';
+import MenuButton from './MenuButton';
 
 export default function BudgetCard({
   transactions,
   seeAllHref = '#',
-  onMenuClick,
-  budgets,
+  budget,
 }: BudgetCardProps) {
   const {
     category: title,
     maximum,
     theme: accentColor,
-  } = budgets || {
+  } = budget || {
     category: 'Entertainment',
     maximum: 50.0,
     theme: '#277C78',
@@ -48,7 +48,7 @@ export default function BudgetCard({
         <h2 className="flex-1 text-2xl font-bold">
           {title || 'Entertainment'}
         </h2>
-        <button
+        {/* <button
           type="button"
           onClick={onMenuClick}
           aria-label="More options"
@@ -61,7 +61,8 @@ export default function BudgetCard({
               className="size-1 rounded-full bg-grey-300 group-hover:bg-grey-500"
             />
           ))}
-        </button>
+        </button> */}
+        <MenuButton name={budget.category} budget={budget} />
       </header>
 
       <p className="mb-4 mt-6 text-preset-4 text-grey-300">

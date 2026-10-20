@@ -1,4 +1,4 @@
-export interface Budget {
+export interface IBudget {
   category: string;
   maximum: number;
   theme: string;
@@ -18,7 +18,7 @@ export interface BudgetCardProps {
   seeAllHref?: string;
   onMenuClick?: () => void;
   /** Tailwind bg class for the accent (dot, bar) */
-  budgets: Budget;
+  budget: IBudget;
 }
 
 export interface SpendingCategory {

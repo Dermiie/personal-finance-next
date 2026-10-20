@@ -1,7 +1,9 @@
 import financeData from '../../../data.json';
 import BudgetCard from '../_components/BudgetCard';
-import Button from '../_components/Button';
+
 import SpendingSummary from '../_components/SpendingSummary';
+
+import AddBudget from '../_components/AddBudget';
 
 export default function page() {
   const budgets = financeData.budgets;
@@ -11,9 +13,8 @@ export default function page() {
     <div className="p-10 space-y-6">
       <div className="flex justify-between">
         <h2 className="text-grey-900 font-bold text-preset-1">Budgets</h2>
-        <div>
-          <Button>+ Add New Budget</Button>
-        </div>
+
+        <AddBudget />
       </div>
 
       <div className="flex gap-4 w-full">
@@ -22,7 +23,7 @@ export default function page() {
         </div>
         <div className=" w-1/2 py-5 space-y-4">
           {budgets.map((budget, i) => (
-            <BudgetCard key={i} budgets={budget} transactions={transactions} />
+            <BudgetCard key={i} budget={budget} transactions={transactions} />
           ))}
         </div>
       </div>

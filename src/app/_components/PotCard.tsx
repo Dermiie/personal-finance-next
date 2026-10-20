@@ -1,19 +1,15 @@
-import { Ellipsis } from 'lucide-react';
 import Button from './Button';
 
-interface Pot {
-  name: string;
-  total: number;
-  target: number;
-  theme: string;
-}
+import { IPot } from '../_types/pots';
+import MenuButton from './MenuButton';
 
 interface Prop {
-  pot: Pot;
+  pot: IPot;
 }
 
 export default function PotCard({ pot }: Prop) {
   const percent = pot.total > pot.target ? 100 : (pot.total / pot.target) * 100;
+
   return (
     <div className="bg-white p-5 rounded-lg relative space-y-10">
       <div className="flex gap-2 items-center justify-between">
@@ -24,13 +20,18 @@ export default function PotCard({ pot }: Prop) {
           ></div>
           <h3 className="text-lg font-bold text-grey-900">{pot.name}</h3>
         </div>
-        <button
+        <MenuButton name="pot" pot={pot} />
+        {/* <button
           type="button"
           aria-label={`More options for ${pot.name}`}
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
           className="flex size-10 shrink-0 items-center justify-center rounded-full text-grey-500 hover:bg-beige-100"
         >
           <Ellipsis className="size-5" aria-hidden="true" />
         </button>
+        <Dropdown name="pot" isOpen={isOpen} /> */}
 
         {/* <div className="absolute right-5 top-5 text-grey-300 border border-grey-900" /> */}
       </div>

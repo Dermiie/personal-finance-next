@@ -1,0 +1,46 @@
+import { useState } from 'react';
+import ColorSelect from './ColorSelector';
+import Button from './Button';
+
+export default function AddPotForm() {
+  const [color, setColor] = useState<string>('green');
+  return (
+    <div className="space-y-4">
+      <h2 className="text-preset-1 font-medium">Add New Pot</h2>
+      <p className="">
+        Choose a pot to set savings target. These can help keep you on track as
+        you save for special purchases
+      </p>
+
+      <form className="space-y-4">
+        <div>
+          <label htmlFor="name" className="text-preset-5-bold text-beige-500 ">
+            Pot Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="border py-2 px-4 w-full rounded-lg cursor-pointer"
+          />
+        </div>
+        <div>
+          <label htmlFor="name" className="text-preset-5-bold text-beige-500">
+            Target
+          </label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="border py-2 px-4 w-full rounded-lg"
+          />
+        </div>
+        <div>
+          <ColorSelect value={color} onChange={setColor} />
+        </div>
+
+        <Button>Add Pot</Button>
+      </form>
+    </div>
+  );
+}
