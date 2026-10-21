@@ -1,21 +1,21 @@
 'use client';
 
 import Button from '../Button';
-import Modal from '../Modal';
+import Modal, { ModalOpen, ModalWindow } from '../Modal';
 import AddPotForm from './AddPotForm';
 
 export default function AddPot() {
   return (
     <Modal>
-      <Modal.Open opens="add-pot">
+      <ModalOpen opens="add-pot">
         <div>
           <Button>+ Add New Pot</Button>
         </div>
-      </Modal.Open>
+      </ModalOpen>
 
-      <Modal.Window name="add-pot">
+      <ModalWindow name="add-pot">
         <AddPotForm />
-      </Modal.Window>
+      </ModalWindow>
     </Modal>
   );
 }

@@ -7,7 +7,7 @@ export default function AddBudgetForm() {
   return (
     <div className="space-y-4">
       <h2 className="text-preset-1 font-medium">Add New Budget</h2>
-      <p className="">
+      <p>
         Choose a category to set a spending budget. These category can help you
         monitor spending
       </p>

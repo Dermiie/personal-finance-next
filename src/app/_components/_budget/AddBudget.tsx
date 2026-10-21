@@ -1,21 +1,21 @@
 'use client';
 
 import Button from '../Button';
-import Modal from '../Modal';
+import Modal, { ModalOpen, ModalWindow } from '../Modal';
 import AddBudgetForm from './AddBudgetForm';
 
 export default function AddBudget() {
   return (
     <Modal>
-      <Modal.Open opens="add-budget">
+      <ModalOpen opens="add-budget">
         <div>
           <Button>+ Add New Budget</Button>
         </div>
-      </Modal.Open>
+      </ModalOpen>
 
-      <Modal.Window name="add-budget">
+      <ModalWindow name="add-budget">
         <AddBudgetForm />
-      </Modal.Window>
+      </ModalWindow>
     </Modal>
   );
 }

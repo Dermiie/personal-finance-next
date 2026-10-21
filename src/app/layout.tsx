@@ -26,7 +26,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="hidden lg:block w-[20%] shrink-0 h-screen sticky top-0 overflow-hidden">
             <Navigation />
           </div>
-          <main className="flex-1 h-screen overflow-y-auto">{children}</main>
+          <main className="flex-1 h-screen overflow-y-auto text-grey-900">
+            {children}
+          </main>
         </div>
         <div className="fixed inset-x-0 bottom-0 z-50 lg:hidden">
           <MobileNavigation />

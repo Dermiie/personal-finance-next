@@ -1,3 +1,5 @@
+'use client';
+
 import { cloneElement, createContext, useContext, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { X } from 'lucide-react';
@@ -24,7 +26,7 @@ function Modal({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Open({
+export function ModalOpen({
   children,
   opens: modalContent,
 }: {
@@ -36,11 +38,14 @@ function Open({
   if (!modal) return null;
 
   return cloneElement(children, {
-    onClick: () => modal.open(modalContent),
+    onClick: () => {
+      children.props.onClick?.();
+      modal.open(modalContent);
+    },
   });
 }
 
-function Window({
+export function ModalWindow({
   children,
   name,
 }: {
@@ -75,8 +80,5 @@ function Window({
     document.body,
   );
 }
-
-Modal.Open = Open;
-Modal.Window = Window;
 
 export default Modal;

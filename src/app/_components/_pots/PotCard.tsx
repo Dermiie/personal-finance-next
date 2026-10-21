@@ -2,6 +2,9 @@ import Button from '../Button';
 
 import { IPot } from '../../_types/pots';
 import MenuButton from '../MenuButton';
+import Modal, { ModalOpen, ModalWindow } from '../Modal';
+import AddToSavingsModal from './AddToSavingsModal';
+import WithdrawFromSavingsModal from './WithdrawFromSavingsModal';
 
 interface Prop {
   pot: IPot;
@@ -21,19 +24,6 @@ export default function PotCard({ pot }: Prop) {
           <h3 className="text-lg font-bold text-grey-900">{pot.name}</h3>
         </div>
         <MenuButton name="pot" pot={pot} />
-        {/* <button
-          type="button"
-          aria-label={`More options for ${pot.name}`}
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
-          className="flex size-10 shrink-0 items-center justify-center rounded-full text-grey-500 hover:bg-beige-100"
-        >
-          <Ellipsis className="size-5" aria-hidden="true" />
-        </button>
-        <Dropdown name="pot" isOpen={isOpen} /> */}
-
-        {/* <div className="absolute right-5 top-5 text-grey-300 border border-grey-900" /> */}
       </div>
       <div className="space-y-4">
         <div className="flex justify-between items-center">
@@ -64,9 +54,22 @@ export default function PotCard({ pot }: Prop) {
         </div>
       </div>
       <div className="w-full gap-3 flex">
-        <Button variant="secondary">+ Add Money</Button>
-
-        <Button variant="secondary">Withdraw Money</Button>
+        <Modal>
+          <ModalOpen opens="savings">
+            <Button variant="secondary">+ Add Money</Button>
+          </ModalOpen>
+          <ModalWindow name="savings">
+            <AddToSavingsModal name={pot.name} pot={pot} />
+          </ModalWindow>
+        </Modal>
+        <Modal>
+          <ModalOpen opens="withdraw">
+            <Button variant="secondary">Withdraw Money</Button>
+          </ModalOpen>
+          <ModalWindow name="withdraw">
+            <WithdrawFromSavingsModal name={pot.name} pot={pot} />
+          </ModalWindow>
+        </Modal>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import financeData from '../../data.json';
 import currency from './_utils/FormatCurrency';
 import { SpendingCategory } from './_types/budget';
 import { formatDate } from './_utils/FormatDate';
+import Link from 'next/link';
 
 const wholeCurrency = new Intl.NumberFormat('en-US', {
   style: 'currency',
@@ -108,7 +109,7 @@ export default function Home() {
   const visibleTransactions = transactions.slice(0, 5);
 
   return (
-    <div className="p-10 space-y-4">
+    <div className="p-10 space-y-4 text-grey-900">
       <h2 className="text-grey-900 font-bold text-preset-1 mb-10">Overview</h2>
       <div className="grid grid-cols-3 gap-3 ">
         <div className="bg-grey-900 text-white p-5 space-y-3 rounded-lg">
@@ -130,9 +131,9 @@ export default function Home() {
           <div className="bg-white rounded-lg p-5 space-y-3">
             <div className="flex justify-between">
               <p className="text-preset-4-bold">Pots</p>
-              <button className="text-beige-500 text-preset-5">
+              <Link href={'/pots'} className="text-beige-500 text-preset-5">
                 See Details
-              </button>
+              </Link>
             </div>
             <div className="grid grid-cols-2 gap-3">
               <div className="bg-beige-100 flex items-center gap-4 px-4 w-full rounded-lg">
@@ -174,9 +175,12 @@ export default function Home() {
           <div className="bg-white rounded-lg p-5 space-y-5">
             <div className="flex justify-between">
               <p className="text-preset-4-bold">Transactions</p>
-              <button className="text-beige-500 text-preset-5">
+              <Link
+                href={'/transactions'}
+                className="text-beige-500 text-preset-5"
+              >
                 See Details
-              </button>
+              </Link>
             </div>
 
             <div className="space-y-8">
@@ -206,9 +210,9 @@ export default function Home() {
           <div className="bg-white rounded-lg p-5">
             <div className="flex justify-between">
               <p className="text-preset-4-bold">Budgets</p>
-              <button className="text-beige-500 text-preset-5">
+              <Link href={'/budgets'} className="text-beige-500 text-preset-5">
                 See Details
-              </button>
+              </Link>
             </div>
             <div className="flex items-center w-full justify-between">
               <div className="relative aspect-square w-full max-w-[270px] shrink-0 p-2">
@@ -244,9 +248,9 @@ export default function Home() {
           <div className="bg-white rounded-lg p-5 space-y-4">
             <div className="flex justify-between">
               <p className="text-preset-4-bold">Recurring Bills</p>
-              <button className="text-beige-500 text-preset-5">
+              <Link href={'/bills'} className="text-beige-500 text-preset-5">
                 See Details
-              </button>
+              </Link>
             </div>
             <div className="space-y-3">
               <div className="w-full rounded-lg border-l-4 py-4 px-4 border-green flex justify-between items-center bg-beige-100">

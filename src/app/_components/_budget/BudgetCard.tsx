@@ -9,7 +9,7 @@ import MenuButton from '../MenuButton';
 
 export default function BudgetCard({
   transactions,
-  seeAllHref = '#',
+
   budget,
 }: BudgetCardProps) {
   const {
@@ -48,20 +48,7 @@ export default function BudgetCard({
         <h2 className="flex-1 text-2xl font-bold">
           {title || 'Entertainment'}
         </h2>
-        {/* <button
-          type="button"
-          onClick={onMenuClick}
-          aria-label="More options"
-          className="group flex gap-[3px] rounded p-2 focus-visible:outline-2 focus-visible:outline-offset-2"
-          style={{ outlineColor: accentColor }}
-        >
-          {[0, 1, 2].map((i) => (
-            <span
-              key={i}
-              className="size-1 rounded-full bg-grey-300 group-hover:bg-grey-500"
-            />
-          ))}
-        </button> */}
+
         <MenuButton name={budget.category} budget={budget} />
       </header>
 
@@ -108,7 +95,7 @@ export default function BudgetCard({
         <div className="mb-1 flex items-center justify-between">
           <h3 className="text-lg font-bold">Latest Spending</h3>
           <Link
-            href={seeAllHref}
+            href={'/transactions'}
             className="inline-flex items-center gap-2 text-[15px] text-grey-300 hover:text-grey-900"
           >
             See All

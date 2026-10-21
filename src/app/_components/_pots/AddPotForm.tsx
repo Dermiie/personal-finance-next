@@ -5,7 +5,7 @@ import Button from '../Button';
 export default function AddPotForm() {
   const [color, setColor] = useState<string>('green');
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 text-grey-900">
       <h2 className="text-preset-1 font-medium">Add New Pot</h2>
       <p className="">
         Choose a pot to set savings target. These can help keep you on track as

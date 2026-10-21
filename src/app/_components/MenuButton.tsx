@@ -18,18 +18,21 @@ export default function MenuButton({ name, pot, budget }: Props) {
     <div className="relative">
       <button
         type="button"
-        aria-label={`More options for ${pot?.name || budget?.category}`}
+        aria-label={`More options for ${pot?.name || budget?.category || name}`}
         aria-expanded={isOpen}
         aria-haspopup="menu"
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
+        onClick={() => setIsOpen(!isOpen)}
         className="flex size-10 shrink-0 items-center justify-center rounded-full text-grey-500 hover:bg-beige-100"
       >
         <Ellipsis className="size-5" aria-hidden="true" />
       </button>
 
-      <Dropdown name={name} isOpen={isOpen} />
+      <Dropdown
+        name={pot?.name || budget?.category || name}
+        type={pot ? 'pot' : 'budget'}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
     </div>
   );
 }
