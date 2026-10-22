@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import financeData from '../../data.json';
-import currency from './_utils/FormatCurrency';
-import { SpendingCategory } from './_types/budget';
-import { formatDate } from './_utils/FormatDate';
+import financeData from '../../../data.json';
+import currency from '../_utils/FormatCurrency';
+import { SpendingCategory } from '../_types/budget';
+import { formatDate } from '../_utils/FormatDate';
 import Link from 'next/link';
 
 const wholeCurrency = new Intl.NumberFormat('en-US', {

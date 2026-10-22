@@ -1,5 +1,5 @@
-import financeData from '../../../data.json';
-import TransactionTable from '../_components/_transactions/TransactionTable';
+import TransactionTable from '@/app/_components/_transactions/TransactionTable';
+import financeData from '../../../../data.json';
 
 export default function Page() {
   const transactions = financeData.transactions;

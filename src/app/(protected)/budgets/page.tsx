@@ -1,7 +1,7 @@
-import financeData from '../../../data.json';
-import AddBudget from '../_components/_budget/AddBudget';
-import BudgetCard from '../_components/_budget/BudgetCard';
-import SpendingSummary from '../_components/_budget/SpendingSummary';
+import AddBudget from '@/app/_components/_budget/AddBudget';
+import financeData from '../../../../data.json';
+import SpendingSummary from '@/app/_components/_budget/SpendingSummary';
+import BudgetCard from '@/app/_components/_budget/BudgetCard';
 
 export default function page() {
   const budgets = financeData.budgets;

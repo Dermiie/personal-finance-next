@@ -1,8 +1,8 @@
 import React from 'react';
 
-import financeData from '../../../data.json';
-import PotCard from '../_components/_pots/PotCard';
-import AddPot from '../_components/_pots/AddPot';
+import financeData from '../../../../data.json';
+import AddPot from '@/app/_components/_pots/AddPot';
+import PotCard from '@/app/_components/_pots/PotCard';
 
 export default function page() {
   const pots = financeData.pots;

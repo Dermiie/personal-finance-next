@@ -1,9 +1,10 @@
 import { ReceiptText } from 'lucide-react';
 import React from 'react';
 
-import financeData from '../../../data.json';
-import { RecurringBill } from '../_types/bills';
-import RecurringBills from '../_components/_bills/RecurringBills';
+import financeData from '../../../../data.json';
+import { RecurringBill } from '@/app/_types/bills';
+import RecurringBills from '@/app/_components/_bills/RecurringBills';
+
 // import Button from '../_components/Button';
 
 export default function page() {
