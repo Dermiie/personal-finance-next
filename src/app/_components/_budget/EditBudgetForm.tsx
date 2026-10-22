@@ -24,13 +24,16 @@ export default function AddBudgetForm() {
           />
         </div>
         <div>
-          <label htmlFor="name" className="text-preset-5-bold text-beige-500">
+          <label
+            htmlFor="spending"
+            className="text-preset-5-bold text-beige-500"
+          >
             Maximum Spending
           </label>
           <input
             type="text"
-            name="name"
-            id="name"
+            name="spending"
+            id="spending"
             className="border py-2 px-4 w-full rounded-lg"
           />
         </div>

@@ -6,9 +6,9 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="flex min-h-screen p-5 text-white">
+    <main className="flex min-h-screen p-5">
       <section
-        className="hidden rounded-lg overflow-hidden shrink-0 bg-cover bg-center md:flex md:w-1/2 lg:w-2/5 p-5 relative flex-col"
+        className="hidden min-h-[calc(100vh-2.5rem)] rounded-lg overflow-hidden shrink-0 bg-cover bg-center md:flex md:w-1/2 lg:w-2/5 p-5 relative flex-col"
         style={{
           backgroundImage: "url('/illustration-authentication.svg')",
         }}
@@ -21,7 +21,7 @@ export default function AuthLayout({
             className="object-contain "
           />
         </div>
-        <div className="mt-auto space-y-4">
+        <div className="mt-auto space-y-4 text-white">
           <p className="text-preset-1">
             Keep track of your money and save for your future
           </p>
