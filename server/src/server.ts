@@ -4,6 +4,7 @@ import express, { Request, Response } from 'express'; //import express from pack
 
 import { connectDB } from './config/db.js';
 import { env } from './config/env.js';
+import AuthRoutes from './modules/auth/auth.routes.js';
 
 const app = express();
 
@@ -11,11 +12,19 @@ const PORT = env.PORT || 5001;
 
 app.use(express.json());
 
-app.get('/api/health', (_req, res) => {
-  res.json({
-    message: 'API is running',
+// app.get('/api/health', (_req, res) => {
+//   res.json({
+//     message: 'API is running',
+//   });
+// });
+app.get('/', (req: Request, res: Response) => {
+  res.status(200).json({
+    success: true,
+    message: 'Express App running',
   });
 });
+
+app.use('/api/auth', AuthRoutes);
 
 async function startServer() {
   await connectDB();

@@ -13,7 +13,7 @@ const environmentSchema = z.object({
     .default('development'),
   PORT: z.coerce.number().int().min(1).max(65535).default(5001),
 
-  MONGODB_URI: z
+  DB_CONNECTIONSTRING: z
     .string()
     .trim()
     .min(1, 'Set MONGODB_URI to your MongoDB Atlas connection string.'),
