@@ -1,10 +1,11 @@
 import bcrypt from 'bcrypt';
 import { Request, Response } from 'express';
-import { signUpSchema } from '../../schemas/auth';
+import { loginSchema, signUpSchema } from '../../schemas/auth';
 import { User } from '../../models/users';
 import { AppError } from '../../errors/app-error';
 import { JwtPayload } from 'jsonwebtoken';
 import JWT from 'jsonwebtoken';
+import { generateToken } from '../../utils/jwt';
 
 export async function signUp(req: Request, res: Response) {
   const data = signUpSchema.parse(req.body);
@@ -43,4 +44,39 @@ export async function signUp(req: Request, res: Response) {
     token,
   });
   console.log(newUser, token);
+}
+
+export async function login(req: Request, res: Response) {
+  const data = loginSchema.parse(req.body);
+
+  const { email, password } = data;
+
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    throw new AppError(401, 'INVALID_CREDENTIALS', 'Invalid email or password');
+  }
+
+  const passwordMatch = await bcrypt.compare(password, user.password);
+
+  if (!passwordMatch) {
+    throw new AppError(401, 'INVALID_CREDENTIALS', 'Invalid email or password');
+  }
+
+  const payload = {
+    userId: user._id.toString(),
+  };
+
+  const token = generateToken(payload);
+
+  res.status(200).json({
+    success: true,
+    message: 'User login successful',
+    user: {
+      id: user._id,
+      email: user.email,
+    },
+    token,
+  });
+  console.log(user, token);
 }
